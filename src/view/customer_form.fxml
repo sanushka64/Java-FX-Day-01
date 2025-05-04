@@ -24,16 +24,16 @@
       <TextField fx:id="txtSalary" layoutX="412.0" layoutY="116.0" promptText="salary" />
       <TextField fx:id="txtEmail" layoutX="412.0" layoutY="78.0" promptText="email" />
       <Button layoutX="273.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnAddCustomerOnAction" prefHeight="26.0" prefWidth="49.0" text="Add" />
-      <TableView layoutX="17.0" layoutY="189.0" prefHeight="200.0" prefWidth="565.0">
+      <TableView fx:id="tblCustomers" layoutX="17.0" layoutY="189.0" prefHeight="200.0" prefWidth="565.0">
         <columns>
-          <TableColumn prefWidth="65.60003471374512" text="id" />
-          <TableColumn prefWidth="84.79993438720703" text="Name" />
-            <TableColumn prefWidth="119.99993896484375" text="Email" />
-            <TableColumn prefWidth="102.39996337890625" text="Phone Number" />
-            <TableColumn prefWidth="122.39999389648438" text="Address" />
-            <TableColumn minWidth="0.0" prefWidth="69.5999755859375" text="Salary" />
+          <TableColumn fx:id="colId" prefWidth="65.60003471374512" text="id" />
+          <TableColumn fx:id="colName" prefWidth="84.79993438720703" text="Name" />
+            <TableColumn fx:id="colEmail" prefWidth="119.99993896484375" text="Email" />
+            <TableColumn fx:id="colPhone" prefWidth="102.39996337890625" text="Phone Number" />
+            <TableColumn fx:id="colAddress" prefWidth="122.39999389648438" text="Address" />
+            <TableColumn fx:id="colSalary" minWidth="0.0" prefWidth="69.5999755859375" text="Salary" />
         </columns>
       </TableView>
-      <Button layoutX="274.0" layoutY="399.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" text="Reload" />
+      <Button layoutX="274.0" layoutY="399.0" mnemonicParsing="false" onAction="#btnReloadOnAction" prefHeight="26.0" prefWidth="74.0" text="Reload" />
    </children>
 </AnchorPane>
