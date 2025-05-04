@@ -16,7 +16,7 @@ public class Main extends Application {
         primaryStage.setScene(
                 new Scene(
                         FXMLLoader.load(
-                                getClass().getResource("view/hello.fxml")
+                                getClass().getResource("view/customer_form.fxml")
                         )
                 )
         );
