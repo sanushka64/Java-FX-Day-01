@@ -1,5 +1,6 @@
 package controller;
 
+import db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,10 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Customer;
-
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.Observable;
 
 public class  CustomerFormController {
     public TextField txtId;
@@ -27,11 +25,10 @@ public class  CustomerFormController {
     public TableColumn colAddress;
     public TableColumn colSalary;
     public TableView tblCustomers;
-    ArrayList<Customer> customerList = new ArrayList<>();
 
     public void btnAddCustomerOnAction(ActionEvent actionEvent) {
-        customerList.add(new Customer(Integer.parseInt(txtId.getText()),txtName.getText(),txtEmail.getText(),txtAddress.getText(),txtPhone.getText(),Double.parseDouble(txtSalary.getText())));
         btnReloadOnAction(actionEvent);
+        DBConnection.getInstance().getDBList().add(new Customer(Integer.parseInt(txtId.getText()),txtName.getText(),txtEmail.getText(),txtAddress.getText(),txtPhone.getText(),Double.parseDouble(txtSalary.getText())));
     }
 
     public void btnReloadOnAction(ActionEvent actionEvent) {
@@ -42,7 +39,7 @@ public class  CustomerFormController {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
         ObservableList<Customer> customerObservableList = FXCollections.observableArrayList();
-        customerList.forEach(customer -> {
+        DBConnection.getInstance().getDBList().forEach(customer -> {
             customerObservableList.add(customer);
         });
         tblCustomers.setItems(customerObservableList);
